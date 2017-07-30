@@ -1,0 +1,11 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<import resource="spring-config.xml" />
+	<bean id="prodService"
+		class="com.stundent.spring.dependency.injection.staticfactory.ProductService"
+		factory-method="createInstance">
+		<property name="product" ref="prod"></property>
+	</bean>
+</beans>

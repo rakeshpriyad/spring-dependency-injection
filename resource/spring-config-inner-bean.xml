@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- <bean id="CustomerBean" class="com.stundent.spring.dependency.innerbean.Customer">
+		<property name="person" ref="PersonBean" />
+	</bean>
+
+	<bean id="PersonBean" class="com.stundent.spring.dependency.innerbean.Person">
+		<property name="name" value="rakesh" />
+		<property name="address" value="address1" />
+		<property name="age" value="28" />
+	</bean> -->
+	
+	<bean id="CustomerBean" class="com.stundent.spring.dependency.innerbean.Customer">
+		<property name="person">
+			<bean class="com.stundent.spring.dependency.innerbean.Person">
+				<property name="name" value="rakesh" />
+				<property name="address" value="address1" />
+				<property name="age" value="28" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="CustomerBeanConst" class="com.stundent.spring.dependency.innerbean.Customer">
+		<constructor-arg>
+			<bean class="com.stundent.spring.dependency.innerbean.Person">
+				<property name="name" value="Aayush" />
+				<property name="address" value="address1" />
+				<property name="age" value="28" />
+			</bean>
+		</constructor-arg>
+	</bean>
+
+
+</beans>

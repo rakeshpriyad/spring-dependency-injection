@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="prod" class="com.stundent.spring.dependency.injection.Product">
+		<property name="productId" value="P001" />
+		<property name="productName" value="Pen" />
+		<property name="category" >
+		<ref bean="category"/>
+		</property>
+		<property name="prodPrice" ref="price" />
+	</bean>
+
+	<bean id="category" class="com.stundent.spring.dependency.injection.Category">
+		<property name="categoryId" value="C001" />
+		<property name="categoryName" value="RotoMac" />
+		<property name="details" ref="cDetails" />
+	</bean>
+
+	<bean id="price" class="com.stundent.spring.dependency.injection.Price">
+		<property name="price" value="400.45" />
+	</bean>
+
+	<bean id="cDetails"
+		class="com.stundent.spring.dependency.injection.CategoryDetails">
+		<property name="description" value="PEN" />
+	</bean>
+
+	<bean id="prodWithConst" class="com.stundent.spring.dependency.injection.ProdWithConst">
+		<constructor-arg ref="category" />
+		<constructor-arg value="P001" />
+		<constructor-arg value="Pen" />
+		<constructor-arg ref="price" />
+	</bean>
+	<bean id="prodWithConst1" class="com.stundent.spring.dependency.injection.ProdWithConst">
+		<constructor-arg ref="category" type="com.stundent.spring.dependency.injection.Category"/>
+		<constructor-arg value="P002" type="java.lang.String"/>
+		<constructor-arg value="MyPen" type="java.lang.String"/>
+		<constructor-arg ref="price" />
+	</bean>
+
+	<!-- <bean id="a" class="com.stundent.spring.dependency.injection.A">
+		<constructor-arg ref="b" />
+		<constructor-arg value="P002" />
+	</bean> -->
+	
+	<!-- <bean id="b" class="com.stundent.spring.dependency.injection.B">
+		<constructor-arg ref="a" />
+		<constructor-arg value="P002" />
+	</bean> -->
+</beans>
