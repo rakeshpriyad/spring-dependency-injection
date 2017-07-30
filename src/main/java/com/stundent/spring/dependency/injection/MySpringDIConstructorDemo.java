@@ -1,11 +1,11 @@
 package com.stundent.spring.dependency.injection;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MySpringDIConstructorDemo {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
 		ProdWithConst prod = (ProdWithConst) context.getBean("prodWithConst");
 
@@ -16,7 +16,6 @@ public class MySpringDIConstructorDemo {
 		System.out.println(prod.getCategory().getDetails().getDescription());
 
 		System.out.println(prod.getProdPrice().getPrice());
-
-		
+		context.close();
 	}
 }
