@@ -14,5 +14,8 @@ public class TightCoupling {
 	public static void main(String[] args) {
 		IOutputGenerator output = new CsvOutputGenerator();
 		output.generateOutput();
+
+		output = new JsonOutputGenerator();
+		output.generateOutput();
 	}
 }

@@ -4,8 +4,11 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
 	<bean id="OutputHelper" class="com.stundent.spring.loose.coupling.OutputHelperSpringWay">
-		<property name="outputGenerator" ref="CsvOutputGenerator" />
+		<property name="outputGenerator" ref="JsonOutputGenerator" />
 	</bean>
+	<!-- <bean id="myOutputHelper" class="com.stundent.spring.loose.coupling.OutputHelperSpringWay">
+		<property name="outputGenerator" ref="JsonOutputGenerator" />
+	</bean> -->
 
 	<bean id="CsvOutputGenerator" class="com.stundent.spring.loose.coupling.CsvOutputGenerator" />
 	<bean id="JsonOutputGenerator" class="com.stundent.spring.loose.coupling.JsonOutputGenerator" />
