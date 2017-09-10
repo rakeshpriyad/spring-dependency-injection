@@ -11,7 +11,8 @@ public class MySpringDIConstructorDemo {
 
 		System.out.println(prod.getProductId());
 		System.out.println(prod.getProductName());
-		System.out.println(prod.getCategory().getCategoryId());
+		Category c=prod.getCategory();
+		System.out.println(c.getCategoryId());
 		System.out.println(prod.getCategory().getCategoryName());
 		System.out.println(prod.getCategory().getDetails().getDescription());
 

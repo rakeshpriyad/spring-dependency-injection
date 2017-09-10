@@ -7,5 +7,6 @@
 
 	<bean id="itemService" class="com.stundent.spring.dependency.lifecycle.ItemService" init-method="initIt" destroy-method="cleanUp">
 		<property name="message" value="i'm property message" />
+		
 	</bean>
 </beans>

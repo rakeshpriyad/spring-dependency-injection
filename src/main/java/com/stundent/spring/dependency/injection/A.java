@@ -8,10 +8,10 @@ package com.stundent.spring.dependency.injection;
 public class A {
 	private String description;
 	private B b;
-	public A(B b, String description) {
+	/*public A(B b, String description) {
 		this.description = description;
 		this.b = b;
-	}
+	}*/
 
 	public String getDescription() {
 		return description;

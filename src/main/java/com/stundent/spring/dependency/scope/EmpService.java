@@ -1,20 +1,22 @@
 package com.stundent.spring.dependency.scope;
-/**
- * 
- * @author aayushraj
- *
- */
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.stundent.spring.dependency.annotation.EmployeeDAO;
+@Component
 public class EmpService {
-	String message;
-
-	public EmpService(){
-		System.out.println(" instance created");
+	EmployeeDAO employeeDAO;
+@Autowired
+	public EmpService(EmployeeDAO employeeDAO){
+this.employeeDAO=employeeDAO;
 	}
-	public String getMessage() {
-		return message;
+		public EmployeeDAO getEmployeeDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
+		public void setEmployeeDAO(EmployeeDAO employeeDAO) {
+			this.employeeDAO = employeeDAO;
+		}
 }

@@ -9,7 +9,10 @@ public class ComponentScanDemo {
 				new String[] { "spring-config-component-scan.xml" });
 
 		ProductService prod = (ProductService) context.getBean("productService");
-		System.out.println(prod);
+		ProductDAO prodDao =prod.getProductDAO();
+		Product product =prodDao.getProduct();
+		System.out.println(product.getProductId());
+		System.out.println(prod.getProductDAO().getProduct().getProductName());
 		context.close();
 	}
 }

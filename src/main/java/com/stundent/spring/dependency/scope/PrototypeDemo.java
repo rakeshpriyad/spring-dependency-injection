@@ -8,12 +8,12 @@ public class PrototypeDemo {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(
 				new String[] { "spring-config-scope-prototype.xml" });
 		EmpService empA = (EmpService) context.getBean("empService");
-		empA.setMessage("Message by empA");
-		System.out.println("Message : " + empA.getMessage());
+		//empA.setMessage("Message by empA");
+		//System.out.println("Message : " + empA.getMessage());
 
 		// retrieve it again
 		EmpService empB = (EmpService) context.getBean("empService");
-		System.out.println("Message : " + empB.getMessage());
+	//	System.out.println("Message : " + empB.getMessage());
 		context.close();
 	}
 }

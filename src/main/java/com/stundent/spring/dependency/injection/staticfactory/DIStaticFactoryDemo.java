@@ -10,14 +10,12 @@ public class DIStaticFactoryDemo {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring-config-static-fact.xml");
 
-		ProductService productService = (ProductService) context.getBean("prodService");
-		Product prod = productService.getProduct();
+		Product prod = (Product) context.getBean("prod");
+		//Product prod = productService.getProduct();
 
 		System.out.println(prod.getProductId());
 		System.out.println(prod.getProductName());
-		System.out.println(prod.getCategory().getCategoryId());
-		System.out.println(prod.getCategory().getCategoryName());
-		System.out.println(prod.getCategory().getDetails().getDescription());
+		
 		context.close();
 	}
 }

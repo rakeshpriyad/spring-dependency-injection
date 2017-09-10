@@ -6,8 +6,8 @@
 	<bean id="prod" class="com.stundent.spring.dependency.injection.Product">
 		<property name="productId" value="P001" />
 		<property name="productName" value="Pen" />
-		<property name="category" >
-		<ref bean="category"/>
+		<property name="category">
+			<ref bean="category" />
 		</property>
 		<property name="prodPrice" ref="price" />
 	</bean>
@@ -17,7 +17,22 @@
 		<property name="categoryName" value="RotoMac" />
 		<property name="details" ref="cDetails" />
 	</bean>
-
+	<bean id="student" class="com.stundent.spring.dependency.annotation.Student">
+		<property name="roll" value="11" />
+		<property name="sName" value="Rajesh" />
+		<property name="course" value="MCA" />
+		<property name="addr" value="Patna,Bihar" />
+		<property name="mob" value="9971315859" />
+		<property name="sem" value="6" />
+		<property name="details" value="xxx" />
+	</bean>
+	<bean id="studentService"
+		class="com.stundent.spring.dependency.annotation.StudentServices">
+		<constructor-arg name="studentDAO" ref="studDao"></constructor-arg>
+	</bean>
+	<bean id="studDao" class="com.stundent.spring.dependency.annotation.StudentDAO">
+		<property name="student" ref="student" />
+	</bean>
 	<bean id="price" class="com.stundent.spring.dependency.injection.Price">
 		<property name="price" value="400.45" />
 	</bean>
@@ -34,19 +49,16 @@
 		<constructor-arg ref="price" />
 	</bean>
 	<bean id="prodWithConst1" class="com.stundent.spring.dependency.injection.ProdWithConst">
-		<constructor-arg ref="category" type="com.stundent.spring.dependency.injection.Category"/>
-		<constructor-arg value="P002" type="java.lang.String"/>
-		<constructor-arg value="MyPen" type="java.lang.String"/>
+		<constructor-arg ref="category"
+			type="com.stundent.spring.dependency.injection.Category" />
+		<constructor-arg value="P002" type="java.lang.String" />
+		<constructor-arg value="MyPen" type="java.lang.String" />
 		<constructor-arg ref="price" />
 	</bean>
 
-	<!-- <bean id="a" class="com.stundent.spring.dependency.injection.A">
-		<constructor-arg ref="b" />
-		<constructor-arg value="P002" />
-	</bean> -->
-	
-	<!-- <bean id="b" class="com.stundent.spring.dependency.injection.B">
-		<constructor-arg ref="a" />
-		<constructor-arg value="P002" />
-	</bean> -->
+	<!-- <bean id="a" class="com.stundent.spring.dependency.injection.A"> <constructor-arg 
+		ref="b" /> <constructor-arg value="P002" /> </bean> -->
+
+	<!-- <bean id="b" class="com.stundent.spring.dependency.injection.B"> <constructor-arg 
+		ref="a" /> <constructor-arg value="P002" /> </bean> -->
 </beans>

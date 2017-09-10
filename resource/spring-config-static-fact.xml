@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	<import resource="spring-config.xml" />
-	<bean id="prodService"
+	<bean id="prod"
 		class="com.stundent.spring.dependency.injection.staticfactory.ProductService"
-		factory-method="createInstance">
-		<property name="product" ref="prod"></property>
+		factory-method="createInstance" >
+		
 	</bean>
 </beans>
